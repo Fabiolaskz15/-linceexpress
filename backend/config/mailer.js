@@ -1,42 +1,86 @@
-import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    family: 4,
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    },
-    connectionTimeout: 60000,
-    greetingTimeout: 60000,
-    socketTimeout: 60000,
-    tls: {
-        rejectUnauthorized: false
-    }
-});
+const transporter = {
 
-transporter.verify((error) => {
+    async sendMail({ to, subject, html }) {
 
-    if (error) {
+        if (!process.env.BREVO_API_KEY) {
+            throw new Error(
+                "Falta BREVO_API_KEY en variables de entorno"
+            );
+        }
 
-        console.error(
-            "❌ Error configurando correo:",
-            error
+        const senderEmail =
+            process.env.BREVO_SENDER_EMAIL ||
+            process.env.EMAIL_USER;
+
+        if (!senderEmail) {
+            throw new Error(
+                "Falta BREVO_SENDER_EMAIL o EMAIL_USER"
+            );
+        }
+
+        const respuesta = await fetch(
+            "https://api.brevo.com/v3/smtp/email",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "api-key": process.env.BREVO_API_KEY
+                },
+                body: JSON.stringify({
+                    sender: {
+                        name: "LinceExpress",
+                        email: senderEmail
+                    },
+                    to: [
+                        {
+                            email: to
+                        }
+                    ],
+                    subject: subject,
+                    htmlContent: html
+                })
+            }
         );
 
-    } else {
+        const texto =
+            await respuesta.text();
+
+        let datos = {};
+
+        try {
+            datos = JSON.parse(texto);
+        } catch {
+            datos = {
+                mensaje: texto
+            };
+        }
+
+        if (!respuesta.ok) {
+            console.error(
+                "❌ Error Brevo:",
+                datos
+            );
+
+            throw new Error(
+                datos.message ||
+                datos.mensaje ||
+                "Error al enviar correo con Brevo"
+            );
+        }
 
         console.log(
-            "📧 Correo configurado correctamente"
+            "📧 Correo enviado con Brevo a:",
+            to
         );
+
+        return datos;
 
     }
 
-});
+};
 
 export default transporter;
