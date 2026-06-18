@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - LinceExpress</title>
+    <title>Recuperar contraseña - LinceExpress</title>
 
     <link rel="stylesheet" href="styles.css">
 
@@ -21,7 +21,11 @@
         class="lince-principal"
     >
 
-    <h1>🐾 Iniciar Sesión</h1>
+    <h1>🔐 Recuperar contraseña</h1>
+
+    <p>
+        Ingresa tu correo y te enviaremos un enlace para restablecer tu contraseña.
+    </p>
 
     <input
         type="email"
@@ -29,33 +33,20 @@
         placeholder="Correo electrónico"
     >
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Contraseña"
-    >
-
-    <button onclick="login()">
-        Entrar
+    <button onclick="recuperarPassword()">
+        Enviar correo
     </button>
 
     <p style="margin-top:15px;">
-        <a href="recuperar.html">
-            ¿Olvidaste tu contraseña?
-        </a>
-    </p>
-
-    <p>
-        ¿No tienes cuenta?
-        <a href="registro.html">
-            Crear cuenta
+        <a href="login.html">
+            Volver al login
         </a>
     </p>
 
 </div>
 
 <script src="config.js"></script>
-<script src="login.js"></script>
+<script src="recuperar.js"></script>
 <script src="pwa.js"></script>
 
 </body>

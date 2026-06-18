@@ -1,16 +1,18 @@
-const CACHE_NAME = "linceexpress-cache-v6";
+const CACHE_NAME = "linceexpress-cache-v7";
 
 const ARCHIVOS_CACHE = [
     "./",
     "./inicio.html",
     "./registro.html",
     "./login.html",
+    "./recuperar.html",
     "./marketplace.html",
     "./perfil.html",
     "./styles.css",
     "./config.js",
     "./registro.js",
     "./login.js",
+    "./recuperar.js",
     "./marketplace.js",
     "./perfil.js",
     "./pwa.js",
