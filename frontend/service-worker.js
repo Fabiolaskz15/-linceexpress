@@ -1,4 +1,4 @@
-const CACHE_NAME = "linceexpress-cache-v7";
+const CACHE_NAME = "linceexpress-cache-v8";
 
 const ARCHIVOS_CACHE = [
     "./",
