@@ -1,4 +1,4 @@
-const CACHE_NAME = "linceexpress-cache-v5";
+const CACHE_NAME = "linceexpress-cache-v6";
 
 const ARCHIVOS_CACHE = [
     "./",
@@ -59,6 +59,7 @@ self.addEventListener("fetch", evento => {
 
     if (
         url.href.includes("localhost:3000") ||
+        url.href.includes("linceexpress-backend.onrender.com") ||
         url.pathname.includes("/api/")
     ) {
         evento.respondWith(
