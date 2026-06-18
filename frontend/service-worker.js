@@ -1,4 +1,4 @@
-const CACHE_NAME = "linceexpress-cache-v8";
+const CACHE_NAME = "linceexpress-cache-v11";
 
 const ARCHIVOS_CACHE = [
     "./",
@@ -17,11 +17,12 @@ const ARCHIVOS_CACHE = [
     "./perfil.js",
     "./pwa.js",
     "./manifest.json",
-    "./assets/lince.gif"
+    "./assets/lince.gif",
+    "./assets/icon-192.png",
+    "./assets/icon-512.png"
 ];
 
 self.addEventListener("install", evento => {
-
     evento.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => {
@@ -30,11 +31,9 @@ self.addEventListener("install", evento => {
     );
 
     self.skipWaiting();
-
 });
 
 self.addEventListener("activate", evento => {
-
     evento.waitUntil(
         caches.keys().then(keys => {
             return Promise.all(
@@ -48,16 +47,15 @@ self.addEventListener("activate", evento => {
     );
 
     self.clients.claim();
-
 });
 
 self.addEventListener("fetch", evento => {
-
     if (evento.request.method !== "GET") {
         return;
     }
 
-    const url = new URL(evento.request.url);
+    const url =
+        new URL(evento.request.url);
 
     if (
         url.href.includes("localhost:3000") ||
@@ -73,8 +71,8 @@ self.addEventListener("fetch", evento => {
     evento.respondWith(
         caches.match(evento.request)
             .then(respuestaCache => {
-                return respuestaCache || fetch(evento.request);
+                return respuestaCache ||
+                    fetch(evento.request);
             })
     );
-
 });
