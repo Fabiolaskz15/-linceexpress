@@ -1,0 +1,23 @@
+{
+    "name": "LinceExpress TESJ",
+    "short_name": "LinceExpress",
+    "description": "Marketplace escolar para comprar y vender productos dentro del campus TESJ.",
+    "start_url": "./inicio.html",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#F8FAFC",
+    "theme_color": "#F97316",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "assets/lince.gif",
+            "sizes": "192x192",
+            "type": "image/gif"
+        },
+        {
+            "src": "assets/lince.gif",
+            "sizes": "512x512",
+            "type": "image/gif"
+        }
+    ]
+}

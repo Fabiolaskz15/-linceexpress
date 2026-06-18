@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace - LinceExpress</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#F97316">
+</head>
+<body>
+
+<header class="navbar">
+
+    <h2>🐾 LinceExpress</h2>
+
+    <div style="display:flex;align-items:center;gap:10px;">
+
+        <span id="usuarioNombre"></span>
+
+        <button
+            onclick="window.location.href='perfil.html'"
+            style="
+            width:auto;
+            padding:8px 15px;
+            background:#8B5CF6;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            "
+        >
+            👤 Mi Perfil
+        </button>
+
+        <button
+            onclick="cerrarSesion()"
+            style="
+            width:auto;
+            padding:8px 15px;
+            background:#EF4444;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            "
+        >
+            🚪 Salir
+        </button>
+
+    </div>
+
+</header>
+
+<div class="contenedor">
+
+    <div class="lince-panel">
+
+        <img
+            src="assets/lince.gif"
+            alt="Lince"
+            class="lince"
+        >
+
+        <div class="mensaje-lince" id="mensajeLince">
+            🐾 Publica tus productos para que otros estudiantes puedan encontrarlos.
+        </div>
+
+    </div>
+
+    <div class="productos-panel">
+
+        <div class="card">
+
+            <h2 id="tituloFormulario">📦 Publicar producto</h2>
+
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Nombre del producto"
+            >
+
+            <textarea
+                id="descripcion"
+                placeholder="Descripción"
+            ></textarea>
+
+            <input
+                type="number"
+                id="precio"
+                placeholder="Precio"
+            >
+
+            <input
+                type="text"
+                id="ubicacion"
+                placeholder="Salón o edificio"
+            >
+
+            <input
+                type="file"
+                id="imagen"
+                accept="image/*"
+            >
+
+            <img
+                id="vistaPrevia"
+                style="
+                display:none;
+                width:100%;
+                max-height:250px;
+                object-fit:cover;
+                border-radius:12px;
+                margin-top:10px;
+                "
+            >
+
+            <button
+                id="btnPublicar"
+                onclick="publicarProducto()"
+            >
+                Publicar producto
+            </button>
+
+            <button
+                id="btnCancelarEdicion"
+                onclick="cancelarEdicion()"
+                style="
+                display:none;
+                background:#64748B;
+                "
+            >
+                Cancelar edición
+            </button>
+
+        </div>
+
+        <h2>🔍 Buscar productos</h2>
+
+        <input
+            type="text"
+            id="buscador"
+            placeholder="Buscar por nombre, descripción, ubicación o vendedor..."
+            style="
+            width:100%;
+            padding:12px;
+            border-radius:10px;
+            border:1px solid #ddd;
+            margin-bottom:20px;
+            "
+        >
+
+        <h2>📦 Productos disponibles</h2>
+
+        <div id="lista-productos"></div>
+
+    </div>
+
+</div>
+
+<script src="config.js"></script>
+<script src="marketplace.js"></script>
+<script src="pwa.js"></script>
+
+</body>
+</html>

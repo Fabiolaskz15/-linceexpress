@@ -1,0 +1,98 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - LinceExpress</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#F97316">
+</head>
+<body>
+
+<header class="navbar">
+
+    <h2>🐾 Mi Perfil</h2>
+
+    <button
+        onclick="window.location.href='marketplace.html'"
+        style="
+        width:auto;
+        padding:8px 15px;
+        background:#3B82F6;
+        color:white;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;
+        "
+    >
+        🏠 Marketplace
+    </button>
+
+</header>
+
+<div class="formulario-container">
+
+    <img
+        src="assets/lince.gif"
+        alt="Lince"
+        class="lince-principal"
+    >
+
+    <h2 id="nombreUsuario"></h2>
+
+    <p id="correoUsuario"></p>
+
+    <hr>
+
+    <h3>✏️ Editar perfil</h3>
+
+    <input
+        type="text"
+        id="telefono"
+        placeholder="📱 Teléfono"
+    >
+
+    <input
+        type="text"
+        id="carrera"
+        placeholder="🏫 Carrera"
+    >
+
+    <textarea
+        id="descripcion"
+        placeholder="📝 Cuéntanos algo sobre ti"
+        style="
+        width:100%;
+        min-height:100px;
+        margin-top:10px;
+        padding:10px;
+        border-radius:8px;
+        border:1px solid #ccc;
+        resize:none;
+        "
+    ></textarea>
+
+    <button
+        onclick="guardarPerfil()"
+    >
+        💾 Guardar cambios
+    </button>
+
+    <hr style="margin:25px 0;">
+
+    <h3>📦 Mis publicaciones</h3>
+
+    <div id="misProductos"></div>
+
+</div>
+
+<script src="config.js"></script>
+<script src="perfil.js"></script>
+<script src="pwa.js"></script>
+
+</body>
+</html>
