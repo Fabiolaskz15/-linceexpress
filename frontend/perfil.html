@@ -1,5 +1,6 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +9,17 @@
     <link rel="stylesheet" href="styles.css">
 
     <!-- PWA -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/manifest.json?v=21">
     <meta name="theme-color" content="#F97316">
 </head>
+
 <body>
 
-<header class="navbar">
+    <header class="navbar">
 
-    <h2>🐾 Mi Perfil</h2>
+        <h2>🐾 Mi Perfil</h2>
 
-    <button
-        onclick="window.location.href='marketplace.html'"
-        style="
+        <button onclick="window.location.href='marketplace.html'" style="
         width:auto;
         padding:8px 15px;
         background:#3B82F6;
@@ -27,45 +27,29 @@
         border:none;
         border-radius:8px;
         cursor:pointer;
-        "
-    >
-        🏠 Marketplace
-    </button>
+        ">
+            🏠 Marketplace
+        </button>
 
-</header>
+    </header>
 
-<div class="formulario-container">
+    <div class="formulario-container">
 
-    <img
-        src="assets/lince.gif"
-        alt="Lince"
-        class="lince-principal"
-    >
+        <img src="assets/lince.gif" alt="Lince" class="lince-principal">
 
-    <h2 id="nombreUsuario"></h2>
+        <h2 id="nombreUsuario"></h2>
 
-    <p id="correoUsuario"></p>
+        <p id="correoUsuario"></p>
 
-    <hr>
+        <hr>
 
-    <h3>✏️ Editar perfil</h3>
+        <h3>✏️ Editar perfil</h3>
 
-    <input
-        type="text"
-        id="telefono"
-        placeholder="📱 Teléfono"
-    >
+        <input type="text" id="telefono" placeholder="📱 Teléfono">
 
-    <input
-        type="text"
-        id="carrera"
-        placeholder="🏫 Carrera"
-    >
+        <input type="text" id="carrera" placeholder="🏫 Carrera">
 
-    <textarea
-        id="descripcion"
-        placeholder="📝 Cuéntanos algo sobre ti"
-        style="
+        <textarea id="descripcion" placeholder="📝 Cuéntanos algo sobre ti" style="
         width:100%;
         min-height:100px;
         margin-top:10px;
@@ -73,26 +57,24 @@
         border-radius:8px;
         border:1px solid #ccc;
         resize:none;
-        "
-    ></textarea>
+        "></textarea>
 
-    <button
-        onclick="guardarPerfil()"
-    >
-        💾 Guardar cambios
-    </button>
+        <button onclick="guardarPerfil()">
+            💾 Guardar cambios
+        </button>
 
-    <hr style="margin:25px 0;">
+        <hr style="margin:25px 0;">
 
-    <h3>📦 Mis publicaciones</h3>
+        <h3>📦 Mis publicaciones</h3>
 
-    <div id="misProductos"></div>
+        <div id="misProductos"></div>
 
-</div>
+    </div>
 
-<script src="config.js"></script>
-<script src="perfil.js"></script>
-<script src="pwa.js"></script>
+    <script src="config.js"></script>
+    <script src="perfil.js"></script>
+    <script src="/pwa.js?v=21"></script>
 
 </body>
+
 </html>

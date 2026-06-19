@@ -29,11 +29,11 @@ window.addEventListener("beforeinstallprompt", evento => {
 
     eventoInstalacion = evento;
 
+    console.log("📲 Instalación PWA disponible");
+
     if (botonInstalar) {
         botonInstalar.style.display = "block";
     }
-
-    console.log("📲 Instalación PWA disponible");
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -49,10 +49,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.appendChild(botonInstalar);
 
+    if (eventoInstalacion) {
+        botonInstalar.style.display = "block";
+    }
+
     botonInstalar.addEventListener("click", async () => {
         if (!eventoInstalacion) {
             alert(
-                "La instalación PWA todavía no está disponible. Abre la página en Google Chrome y espera unos segundos."
+                "Chrome todavía no detecta la PWA como instalable. Abre la página en Google Chrome, espera unos segundos y actualiza."
             );
             return;
         }
@@ -63,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
             await eventoInstalacion.userChoice;
 
         if (resultado.outcome === "accepted") {
-            console.log("✅ PWA instalada");
+            console.log("✅ LinceExpress instalada como PWA");
         } else {
             console.log("❌ Instalación cancelada");
         }
@@ -74,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("appinstalled", () => {
-    console.log("✅ LinceExpress instalada como PWA");
+    console.log("✅ LinceExpress fue instalada");
 
     if (botonInstalar) {
         botonInstalar.style.display = "none";
